@@ -24,7 +24,7 @@ class Robo:
         self.servico = Service(ChromeDriverManager().install())
         self.site = webdriver.Chrome(service=self.servico)
         # Configurações da planilha
-        self.arquivo = load_workbook(filename="C:\\Users\\Alan\\Desktop\\Projetos GIT pessoal\\Kabum\\Produtos.xlsx")
+        self.arquivo = load_workbook(filename="C:\\Users\\Alan\\Desktop\\Projetos GIT pessoal\\Project-Kabum\\Kabum\\Produtos.xlsx")
         self.planilha = self.arquivo["Produtos"]
 
     
@@ -55,6 +55,6 @@ class Robo:
             self.captando_nomes_dos_produtos()
       except:
         print("Sem novas paginas. Finalizando script.")
-        self.arquivo.save("C:\\Users\\Alan\\Desktop\\Projetos GIT pessoal\\Kabum\\Produtos.xlsx")
+        self.arquivo.save("C:\\Users\\Alan\\Desktop\\Projetos GIT pessoal\\Project-Kabum\\Kabum\\Produtos.xlsx")
 
 Robo()
