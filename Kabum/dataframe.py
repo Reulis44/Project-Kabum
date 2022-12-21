@@ -8,6 +8,7 @@ class DataFrame:
         self.create_dataframe()
         self.remove_repeated_values()
         self.selections_and_frequency()
+        self.save_new_excel()
     
     
     def create_dataframe(self):
@@ -23,7 +24,14 @@ class DataFrame:
         # Verificando se há computadores com o valor menor ou igual a 4000
         selection = (self.dt['Valor'] <= 4000)
         # Verificando quantos computadores tem o valor menor ou igual a 4000
-        self.value = selection.shape[0]
+        self.value = self.dt[selection]
+        # Alterando o index do quadro
+        self.value.index = range(self.value.shape[0])
+
+        
+    def save_new_excel(self):
+        # Salvando arquivo filtrado
+        self.value.to_excel("Kabum/new_excel.xlsx", index= False)
         
 
     
