@@ -27,13 +27,15 @@ class DataFrame:
         self.value = self.dt[selection]
         # Alterando o index do quadro
         self.value.index = range(self.value.shape[0])
+        # Mostrando a média de valores
+        self.mean_value = self.dt['Valor'].mean().__round__(1)
+        # Estatística Descritiva dos valores de pc gamers
+        self.est_descr = self.dt['Valor'].describe().round(2)
 
         
     def save_new_excel(self):
         # Salvando arquivo filtrado
         self.value.to_excel("Kabum/new_excel.xlsx", index= False)
         
-
-    
 
 DataFrame()
